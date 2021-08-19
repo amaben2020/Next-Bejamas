@@ -1,7 +1,18 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.scss';
+import type { AppProps } from 'next/app';
+import CartState from './../context/CartState';
+import CartItems from '../styles/components/Cart/CartItems';
+import NavigationBar from '../styles/components/NavBar/NavigationBar';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <CartState>
+      <>
+        <NavigationBar />
+        <CartItems />
+        <Component {...pageProps} />
+      </>
+    </CartState>
+  );
 }
-export default MyApp
+export default MyApp;
