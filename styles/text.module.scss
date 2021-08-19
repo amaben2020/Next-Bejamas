@@ -1,0 +1,9 @@
+.purp {
+  color: purple;
+  font-size: 28px;
+
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
