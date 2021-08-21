@@ -9,6 +9,7 @@ const NavigationBar = () => {
   const toggleCartHandler = () => {
     return toggleCart();
   };
+
   return (
     <Navbar className={styles.mynav} bg="light" expand="lg">
       <Container>
@@ -20,8 +21,8 @@ const NavigationBar = () => {
           >
             Cart
           </Navbar.Brand>
-          {cartItems.length ? <CartItems /> : undefined}
-          {showCart && <CartItems />}
+
+          {showCart ? <CartItems /> : cartItems.length ? <CartItems /> : null}
         </div>
       </Container>
     </Navbar>

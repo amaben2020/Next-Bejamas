@@ -21,6 +21,7 @@
   right: 0;
   background: #fff;
   overflow-y: scroll;
+  z-index: 5;
 
   &__cartBtn {
     position: absolute;
