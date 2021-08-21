@@ -20,7 +20,7 @@ const CartState = ({ children }) => {
     return dispatch({ type: ADD_TO_CART, payload: item });
   };
 
-  const removeFromCart = (id) => {
+  const removeFromCart = () => {
     return dispatch({ type: REMOVE_FROM_CART });
   };
 

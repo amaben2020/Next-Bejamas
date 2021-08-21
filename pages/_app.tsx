@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <CartState>
       <>
         <NavigationBar />
-        <CartItems />
+
         <Component {...pageProps} />
       </>
     </CartState>

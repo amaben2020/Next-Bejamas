@@ -22,7 +22,7 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
   const featuredProduct = products.filter(
     (product: { featured: any }): any => product.featured
   );
-  console.log(featuredProduct.map((p): any => p.name));
+
   return (
     <div className={style.featured}>
       <h1> </h1>
@@ -35,12 +35,12 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
             | React.ReactPortal
             | null
             | undefined;
-          image: { formats: { thumbnail: { url: string | undefined } } };
+          image: { formats: { large: { url: string | undefined } } };
         }) => (
           <>
             <h1>{product.name}</h1>
             <img
-              src={product.image.formats.thumbnail.url}
+              src={product.image.formats.large.url}
               style={{ width: '100%', height: '50vh' }}
               alt=""
             />

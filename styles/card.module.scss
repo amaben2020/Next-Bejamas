@@ -4,6 +4,8 @@
   cursor: pointer;
   position: relative;
   margin: 2vh;
+  transition: all 0.2s ease-in;
+  height: 50vh;
 
   &:hover {
     .card__btn {
@@ -28,5 +30,6 @@
     width: 100%;
     cursor: pointer;
     height: 5vh;
+    color: #fff;
   }
 }
