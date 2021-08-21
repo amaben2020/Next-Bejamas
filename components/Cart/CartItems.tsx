@@ -1,15 +1,21 @@
 import React from 'react';
 import { useContext } from 'react';
-import CartContext from '../../../context/CartContext';
+import CartContext from '../../context/CartContext';
 import Image from 'next/image';
+
+interface ICartItems {
+  image: string;
+  name: string;
+}
+
 const CartItems = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const cartItem = [...cartItems];
 
   return (
     <div>
-      {cartItem?.map((c: any) => (
-        <div key={c._id}>
+      {cartItem?.map((c: ICartItems) => (
+        <div>
           {/* <Image
             src={c.image}
             alt="Picture of the author"

@@ -1,9 +1,8 @@
-import styles from '../styles/Home.module.css';
-import text from './../styles/text.module.scss';
-import products from './../data/data';
-import ProductCard from '../styles/components/ProductCard/ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 import { useState } from 'react';
 import React from 'react';
+import { API_URL } from './../data/endpoint/index';
+import Featured from '../components/Featured';
 interface Product {
   _id: string;
   name: string;
@@ -20,18 +19,16 @@ interface ProductCardProps {
   key: string;
 }
 
-const Home: React.FC<ProductCardProps> = () => {
+const Home: React.FC<ProductCardProps> = ({ products }: any) => {
   const [productss, setProducts] = useState<Product[]>(products);
-
+  console.log(products);
   return (
     <div>
-      <main className={styles.main}>
-        <h1 className={text.purp}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <main>
+        <Featured products={products} />
 
         <section>
-          {productss?.map((product: Product) => (
+          {products?.map((product: Product) => (
             <ProductCard key={product._id} product={product} />
           ))}
         </section>
@@ -42,7 +39,12 @@ const Home: React.FC<ProductCardProps> = () => {
 
 export default React.memo(Home);
 
-// const getStaticServerSideProps = ( ) => {
-
-//   const res =
-// }
+export const getStaticProps = async () => {
+  const res = await fetch(`${API_URL}/products`);
+  const products = await res.json();
+  console.log('products ==>', products);
+  return {
+    props: { products },
+    revalidate: 1,
+  };
+};

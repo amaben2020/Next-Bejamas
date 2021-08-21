@@ -1,0 +1,32 @@
+.card {
+  width: 30vw;
+  border: 1px solid rgb(165, 148, 148);
+  cursor: pointer;
+  position: relative;
+  margin: 2vh;
+
+  &:hover {
+    .card__btn {
+      display: block;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 95%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+    image-rendering: pixelated;
+  }
+
+  &__btn {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    background: black;
+    width: 100%;
+    cursor: pointer;
+    height: 5vh;
+  }
+}

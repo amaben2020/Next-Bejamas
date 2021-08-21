@@ -14,6 +14,12 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "context/CartState.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "context/CartState.js",
+    "context/CartContext.js"
+  ],
   "exclude": ["node_modules"]
 }

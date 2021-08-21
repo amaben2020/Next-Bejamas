@@ -1,0 +1,9 @@
+.mynav {
+  background: red;
+  padding: 2vh;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
