@@ -41,16 +41,23 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
           image: { formats: { large: { url: string | undefined } } };
         }) => (
           <>
-            <h1>{product.name}</h1>
-            <AddToCartButton
-              onClick={() => addToCart(product)}
-              title={'Add To Cart'}
-            />
-            <img
-              src={product.image && product.image.formats.large.url}
-              style={{ width: '100%', height: '50vh' }}
-              alt=""
-            />
+            <div className={style.featured__textBtn}>
+              <h1>{product.name}</h1>
+              <AddToCartButton
+                onClick={() => addToCart(product)}
+                title={'Add To Cart'}
+              />
+            </div>
+            <div className={style.featured__wrapper}>
+              <img
+                src={product.image && product.image.formats.large.url}
+                className={style.featured__featuredImage}
+                alt=""
+              />
+              <div className={style.featured__photoOfTheDay}>
+                Photo of the day
+              </div>
+            </div>
           </>
         )
       )}

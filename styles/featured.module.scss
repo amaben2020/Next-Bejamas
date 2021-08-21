@@ -1,4 +1,33 @@
 .featured {
   width: 100%;
   height: 80vh;
+
+  &__textBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__featuredImage {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__photoOfTheDay {
+    position: absolute;
+    bottom: 0;
+    width: 15vw;
+    color: black;
+    height: 8vh;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
