@@ -1,16 +1,17 @@
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import CartState from './../context/CartState';
-import CartItems from './../components/Cart/CartItems';
 import NavigationBar from '../components/NavBar/NavigationBar';
+import Layout from '../components/Layout/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <CartState>
       <>
-        <NavigationBar />
-
-        <Component {...pageProps} />
+        <Layout>
+          <NavigationBar />
+          <Component {...pageProps} />
+        </Layout>
       </>
     </CartState>
   );

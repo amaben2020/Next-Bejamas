@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './../styles/featured.module.scss';
-
+import CartContext from './../context/CartContext';
+import AddToCartButton from './Button/AddToCartButton';
 interface Product {
   _id: string;
   name: string;
@@ -17,16 +18,18 @@ interface ProductCardProps {
   key: string;
 }
 const Featured: React.JSXElementConstructor<ProductCardProps> = ({
-  products,
+  product,
 }: any) => {
-  const featuredProduct = products.filter(
+  const featuredProduct = product.filter(
     (product: { featured: any }): any => product.featured
   );
+
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className={style.featured}>
       <h1> </h1>
-      {featuredProduct.map(
+      {featuredProduct?.map(
         (product: {
           name:
             | boolean
@@ -39,8 +42,12 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
         }) => (
           <>
             <h1>{product.name}</h1>
+            <AddToCartButton
+              onClick={() => addToCart(product)}
+              title={'Add To Cart'}
+            />
             <img
-              src={product.image.formats.large.url}
+              src={product.image && product.image.formats.large.url}
               style={{ width: '100%', height: '50vh' }}
               alt=""
             />

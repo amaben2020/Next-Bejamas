@@ -25,7 +25,7 @@ const Home: React.FC<ProductCardProps> = ({ products }: any) => {
   return (
     <div>
       <main>
-        <Featured products={products} />
+        <Featured product={products} key={undefined} />
 
         <section>
           {products?.map((product: Product) => (

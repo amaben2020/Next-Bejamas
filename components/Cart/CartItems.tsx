@@ -4,7 +4,7 @@ import CartContext from '../../context/CartContext';
 import Image from 'next/image';
 import styles from './../../styles/navigationBar.module.scss';
 interface ICartItems {
-  image: string;
+  image: { formats: { thumbnail: { url: string } } };
   name: string;
   _id: string;
 }
@@ -13,26 +13,29 @@ const CartItems = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const cartItem = [...cartItems];
 
+  console.log(cartItem);
+
   const clearItems = () => {
     return removeFromCart();
   };
 
   return (
     <div className={styles.cartItems}>
+      {' '}
       {cartItem?.map((c: ICartItems) => (
-        <div
-          key={c._id}
-          style={{ border: '1px solid black', height: '20vh', width: '20vw' }}
-        >
+        <div key={c._id}>
           <Image
             src={c.image.formats.thumbnail.url}
-            alt="Picture of the author"
+            alt={c.name}
             width={70}
             height={50}
           />
 
           <p>{c.name}</p>
-          <button onClick={clearItems}> Clear</button>
+          <button className={styles.cartItems__cartBtn} onClick={clearItems}>
+            {' '}
+            Clear
+          </button>
         </div>
       ))}
     </div>
