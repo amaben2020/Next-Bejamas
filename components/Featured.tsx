@@ -15,7 +15,6 @@ export interface MyProductsArrayInterface extends Array<Product> {}
 
 interface ProductCardProps {
   product: MyProductsArrayInterface;
-  key: string;
 }
 const Featured: React.JSXElementConstructor<ProductCardProps> = ({
   product,
