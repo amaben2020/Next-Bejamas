@@ -6,6 +6,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem 0 0.5rem 0;
+  }
+
+  &__heading {
+    font-family: Archivo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
   }
 
   &__header-text {

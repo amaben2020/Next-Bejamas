@@ -7,12 +7,6 @@ import Description from '../components/Description/Description';
 import { useRouter } from 'next/router';
 
 interface Product {
-  // _id: string;
-  // name: string;
-  // image: string;
-  // price: number;
-  // rating: number;
-  // numReviews: number;
   _id: string;
   details: null;
   name: string;

@@ -1,3 +1,17 @@
 .description__layout {
   margin-top: 4vh;
+  &__textarea {
+  }
+
+  &__text {
+    font-family: Archivo;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    color: #656565;
+    font-family: Archivo;
+    font-weight: 300;
+  }
 }

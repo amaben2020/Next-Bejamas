@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './../../styles/addToCart.module.scss';
 interface IProps {
   title: string;
   onClick: () => void;
@@ -8,7 +8,9 @@ interface IProps {
 const Button = ({ title, onClick }: IProps) => {
   return (
     <div>
-      <button onClick={onClick}> {title}</button>
+      <button className={styles.addToCart} onClick={onClick}>
+        {title}
+      </button>
     </div>
   );
 };

@@ -5,14 +5,9 @@ import Featured from '../components/Featured';
 import DescriptionLayout from '../components/Layout/DescriptionLayout';
 import Description from '../components/Description/Description';
 import { useRouter } from 'next/router';
+import { Col, Row } from 'react-bootstrap';
 
 interface Product {
-  // _id: string;
-  // name: string;
-  // image: string;
-  // price: number;
-  // rating: number;
-  // numReviews: number;
   _id: string;
   details: null;
   name: string;
@@ -38,37 +33,59 @@ const Home: React.FC<ProductCardProps> = ({
   const lastPage = Math.ceil(numberOfProducts / 3);
 
   const router = useRouter();
-  const location = useRouter();
-  const myPath = location.asPath;
-  console.log(location.asPath);
 
+  const productDetails = Object.values(products).filter(
+    (prod: any) => prod.featured
+  );
   return (
     <div>
       <main>
         {/* <Featured product={products} /> */}
+
         <DescriptionLayout>
-          <Description text="My text oooo" />
+          <Description
+            text={productDetails.map((d: any) => d.details)}
+            category={productDetails.map((d: any) => d.category)}
+            title={productDetails.map((d: any) => d.name)}
+          />
         </DescriptionLayout>
-        <section>
-          {products?.map((product: Product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </section>
-        <div style={{ display: 'flex' }}>
-          <button
-            disabled={page <= 1}
-            onClick={() => router.push(`/?page=${page - 1}`)}
+
+        <Row style={{ display: 'flex', padding: '50px' }}>
+          <Col lg={3}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum
+            quaerat odit possimus officiis quos rem labore adipisci! Impedit
+            consequatur nobis, nisi praesentium, magnam laudantium obcaecati
+            ipsam dolorem voluptate quae nihil!
+          </Col>
+
+          <Col
+            lg={9}
+            style={{ display: 'flex', height: '20vh', flexWrap: 'wrap' }}
+            xs={12}
+            sm={12}
           >
-            {' '}
-            Prev
-          </button>
-          <button
-            disabled={page >= lastPage}
-            onClick={() => router.push(`/?page=${page + 1}`)}
-          >
-            Next
-          </button>
-        </div>
+            {products?.map((product: Product) => (
+              <Col lg={4}>
+                <ProductCard key={product._id} product={product} />
+              </Col>
+            ))}
+          </Col>
+          <div style={{ display: 'flex' }}>
+            <button
+              disabled={page <= 1}
+              onClick={() => router.push(`/?page=${page - 1}`)}
+            >
+              {' '}
+              Prev
+            </button>
+            <button
+              disabled={page >= lastPage}
+              onClick={() => router.push(`/?page=${page + 1}`)}
+            >
+              Next
+            </button>
+          </div>
+        </Row>
       </main>
     </div>
   );
@@ -80,7 +97,7 @@ export const getServerSideProps = async ({ query: { page = 1 } }) => {
   const start = +page === 1 ? 0 : (+page - 1) * 3;
   const numProductsResponse = await fetch(`${API_URL}/products/count`);
   const numberOfProducts = await numProductsResponse.json();
-  const res = await fetch(`${API_URL}/products?_limit=3&_start=${start}`);
+  const res = await fetch(`${API_URL}/products?_limit=6&_start=${start}`);
   const products = await res.json();
 
   return {

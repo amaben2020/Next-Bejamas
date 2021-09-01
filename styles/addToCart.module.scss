@@ -1,0 +1,13 @@
+.addToCart {
+  height: 5vh;
+  width: 15vw;
+  border: none;
+  background: #000000;
+  color: #fff;
+
+  &:hover {
+    background: #fff;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+}

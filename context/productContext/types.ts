@@ -1,1 +1,0 @@
-export const FEATURED_PRODUCT = 'FEATURED_PRODUCT';

@@ -3,19 +3,18 @@ import styles from './../../styles/descriptionLayout.module.scss';
 import { Col, Row } from 'react-bootstrap';
 interface IDescription {
   text: string;
+  title: string;
+  category: string;
 }
 
-const Description = ({ text }: IDescription) => {
+const Description = ({ text, category, title }: IDescription) => {
   return (
     <div className={styles.description__layout}>
       <Row>
-        <Col lg={7}>
-          <h2>Header Text</h2>
-          {text}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
-          earum unde necessitatibus pariatur sapiente mollitia tempore veniam.
-          Perspiciatis nostrum alias deleniti similique, corrupti dolores, sequi
-          ut illo repellendus et laudantium.
+        <Col lg={7} className={styles.description__layout__textarea}>
+          <h2>{title}</h2>
+          <h4>{category}</h4>
+          <p className={styles.description__layout__text}> {text} </p>
         </Col>
 
         <Col lg={5}>
