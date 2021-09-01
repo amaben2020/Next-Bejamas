@@ -6,7 +6,7 @@ import DescriptionLayout from '../components/Layout/DescriptionLayout';
 import Description from '../components/Description/Description';
 import { useRouter } from 'next/router';
 import { Col, Row } from 'react-bootstrap';
-
+import styles from './../styles/product.module.scss';
 interface Product {
   _id: string;
   details: null;
@@ -29,6 +29,7 @@ const Home: React.FC<ProductCardProps> = ({
   products,
   page,
   numberOfProducts,
+  recommendations,
 }: any) => {
   const lastPage = Math.ceil(numberOfProducts / 3);
 
@@ -47,10 +48,11 @@ const Home: React.FC<ProductCardProps> = ({
             text={productDetails.map((d: any) => d.details)}
             category={productDetails.map((d: any) => d.category)}
             title={productDetails.map((d: any) => d.name)}
+            recommendations={recommendations}
           />
         </DescriptionLayout>
 
-        <Row style={{ display: 'flex', padding: '50px' }}>
+        <Row className={styles.productSection__wrapper}>
           <Col lg={3}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum
             quaerat odit possimus officiis quos rem labore adipisci! Impedit
@@ -60,14 +62,12 @@ const Home: React.FC<ProductCardProps> = ({
 
           <Col
             lg={9}
-            style={{ display: 'flex', height: '20vh', flexWrap: 'wrap' }}
+            className={styles.productSection__wrapper__productArea}
             xs={12}
             sm={12}
           >
             {products?.map((product: Product) => (
-              <Col lg={4}>
-                <ProductCard key={product._id} product={product} />
-              </Col>
+              <ProductCard key={product._id} product={product} />
             ))}
           </Col>
           <div style={{ display: 'flex' }}>
@@ -100,11 +100,15 @@ export const getServerSideProps = async ({ query: { page = 1 } }) => {
   const res = await fetch(`${API_URL}/products?_limit=6&_start=${start}`);
   const products = await res.json();
 
+  const request = await fetch(`${API_URL}/recommendations`);
+  const recommendations = await request.json();
+
   return {
     props: {
       products,
       page: +page,
       numberOfProducts,
+      recommendations,
     },
     // revalidate: 1,
   };

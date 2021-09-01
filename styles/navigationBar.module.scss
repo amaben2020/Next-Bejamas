@@ -19,14 +19,14 @@
 .cartItems {
   width: 25vw;
   height: 30vh;
-  border: 1px solid #656565;
+  border: 2px solid #e5e5e5;
   position: absolute;
   top: 100%;
   right: 0;
   background: #fff;
   overflow-y: scroll;
   z-index: 5;
-  display: flex;
+
   &__cartBtn {
     position: absolute;
     bottom: 0;
@@ -39,6 +39,15 @@
     display: flex;
     margin-top: 2vh;
     justify-content: space-around;
+    border-bottom: 1px solid #e5e5e5;
+    overflow-y: auto;
+    height: 15vh;
+  }
+  &__clearBtn {
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    margin-bottom: 4vh;
   }
   &__paddingarea {
     padding: 1.5rem;

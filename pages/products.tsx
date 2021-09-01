@@ -37,7 +37,7 @@ const Home: React.FC<ProductCardProps> = ({
       <main>
         <Featured product={products} />
         <DescriptionLayout>
-          <Description text="My text oooo" />
+          <Description text="My text oooo jdsjskndsjscsjdshdbhjshdhbjchscdsbhdbhjsbhbdhjhshbdhcdshbsbhjdbhsjhbdbjh dhsdbbhsdbjhchbsd  djhbcsbhdbchjbshd" />
         </DescriptionLayout>
         <section>
           {products?.map((product: Product) => (

@@ -5,6 +5,7 @@ import style from './../../styles/featured.module.scss';
 import AddToCartButton from '../Button/AddToCartButton';
 import CartContext from '../../context/CartContext';
 import { API_URL } from '../../data/endpoint';
+import Description from '../Description/Description';
 
 interface IMyChildren {
   // children: JSX.Element | JSX.Element[];

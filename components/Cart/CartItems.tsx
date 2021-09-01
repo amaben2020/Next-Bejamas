@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import Image from 'next/image';
 import styles from './../../styles/navigationBar.module.scss';
+import AddToCartButton from '../Button/AddToCartButton';
 interface ICartItems {
   price: number;
   image: { formats: { thumbnail: { url: string } } };
@@ -32,15 +33,14 @@ const CartItems = () => {
               <Image
                 src={c.image.formats.thumbnail.url}
                 alt={c.name}
-                width={100}
-                height={50}
+                width={140}
+                height={80}
               />
             </div>
           </div>
-          <button className={styles.cartItems__cartBtn} onClick={clearItems}>
-            {' '}
-            Clear
-          </button>
+          <div className={styles.cartItems__clearBtn}>
+            <AddToCartButton title={' Clear'} onClick={clearItems} />
+          </div>
         </div>
       ))}
     </div>

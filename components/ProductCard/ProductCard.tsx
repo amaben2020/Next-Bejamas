@@ -12,13 +12,16 @@ const ProductCard: React.JSXElementConstructor<Product> = ({
   product,
 }: any) => {
   const { addToCart } = useContext(CartContext);
-  const { _id, image, name, price, category } = product;
+  const { _id, image, name, price, category, bestseller } = product;
 
   console.log(image);
 
   return (
     <div>
       <div className={styles.card} key={_id}>
+        <div>
+          {bestseller && <p className={styles.card__bestseller}> Bestseller</p>}
+        </div>
         <img
           className={styles.card__img}
           src={image && image.formats.thumbnail.url}

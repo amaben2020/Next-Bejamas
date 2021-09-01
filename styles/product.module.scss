@@ -1,0 +1,16 @@
+.productSection__wrapper {
+  display: flex;
+  padding: 3rem 0;
+  // display: flex;
+
+  &__productArea {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    // margin: 0 3vw;
+
+    @media screen and (max-width: 768px) {
+      width: 80vw;
+    }
+  }
+}

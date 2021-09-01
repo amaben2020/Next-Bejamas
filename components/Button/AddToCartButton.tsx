@@ -6,6 +6,7 @@ interface IProps {
 }
 
 const Button = ({ title, onClick }: IProps) => {
+  const [inverted, setInverted] = React.useState(false);
   return (
     <div>
       <button className={styles.addToCart} onClick={onClick}>
