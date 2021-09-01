@@ -11,9 +11,12 @@ const NavigationBar = () => {
   };
 
   return (
-    <Navbar className={styles.mynav} bg="light" expand="lg">
+    <div className={styles.mynav}>
       <Container>
-        <div className={styles.mynav__wrapper}>
+        <div
+          className={styles.mynav__wrapper}
+          style={{ justifyContent: 'space-between' }}
+        >
           <Navbar.Brand>Bejamas</Navbar.Brand>
           <Navbar.Brand
             className={styles.mynav__icon}
@@ -25,7 +28,7 @@ const NavigationBar = () => {
           {showCart ? <CartItems /> : cartItems.length ? <CartItems /> : null}
         </div>
       </Container>
-    </Navbar>
+    </div>
   );
 };
 

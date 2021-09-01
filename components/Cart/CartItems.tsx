@@ -13,8 +13,6 @@ const CartItems = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const cartItem = [...cartItems];
 
-  console.log(cartItem);
-
   const clearItems = () => {
     return removeFromCart();
   };

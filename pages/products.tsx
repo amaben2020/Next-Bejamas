@@ -36,16 +36,12 @@ const Home: React.FC<ProductCardProps> = ({
   numberOfProducts,
 }: any) => {
   const lastPage = Math.ceil(numberOfProducts / 3);
-
   const router = useRouter();
-  const location = useRouter();
-  const myPath = location.asPath;
-  console.log(location.asPath);
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <main>
-        {/* <Featured product={products} /> */}
+        <Featured product={products} />
         <DescriptionLayout>
           <Description text="My text oooo" />
         </DescriptionLayout>
@@ -54,17 +50,18 @@ const Home: React.FC<ProductCardProps> = ({
             <ProductCard key={product._id} product={product} />
           ))}
         </section>
+
         <div style={{ display: 'flex' }}>
           <button
             disabled={page <= 1}
-            onClick={() => router.push(`/?page=${page - 1}`)}
+            onClick={() => router.push(`/products?page=${page - 1}`)}
           >
             {' '}
             Prev
           </button>
           <button
             disabled={page >= lastPage}
-            onClick={() => router.push(`/?page=${page + 1}`)}
+            onClick={() => router.push(`/products?page=${page + 1}`)}
           >
             Next
           </button>
@@ -80,9 +77,8 @@ export const getServerSideProps = async ({ query: { page = 1 } }) => {
   const start = +page === 1 ? 0 : (+page - 1) * 3;
   const numProductsResponse = await fetch(`${API_URL}/products/count`);
   const numberOfProducts = await numProductsResponse.json();
-  const res = await fetch(`${API_URL}/products?_limit=3&_start=${start}`);
+  const res = await fetch(`${API_URL}/products?_limit=2&_start=${start}`);
   const products = await res.json();
-
   return {
     props: {
       products,

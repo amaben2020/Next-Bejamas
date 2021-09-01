@@ -2,13 +2,23 @@ import React, { useContext } from 'react';
 import style from './../styles/featured.module.scss';
 import CartContext from './../context/CartContext';
 import AddToCartButton from './Button/AddToCartButton';
+import ProductContext from './../context/productContext/ProductContext';
 interface Product {
+  // _id: string;
+  // name: string;
+  // image: string;
+  // price: number;
+  // rating: number;
+  // numReviews: number;
   _id: string;
+  details: null;
   name: string;
-  image: string;
+  category: string;
   price: number;
-  rating: number;
-  numReviews: number;
+  featured: boolean;
+  bestseller: boolean;
+  image: object;
+  currency: string;
 }
 
 export interface MyProductsArrayInterface extends Array<Product> {}

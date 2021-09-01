@@ -19,7 +19,8 @@
     "**/*.ts",
     "**/*.tsx",
     "context/CartState.js",
-    "context/CartContext.js"
+    "context/CartContext.js",
+    "pages/_app.jsx"
   ],
   "exclude": ["node_modules"]
 }

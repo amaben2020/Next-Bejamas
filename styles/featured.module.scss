@@ -1,11 +1,21 @@
 .featured {
   width: 100%;
-  height: 80vh;
+  // height: 80vh;
 
   &__textBtn {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__header-text {
+    font-family: Archivo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
   }
 
   &__featuredImage {

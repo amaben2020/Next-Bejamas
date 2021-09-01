@@ -1,5 +1,5 @@
 .mynav {
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #e5e5e5;
   padding: 2vh;
   position: relative;
 
@@ -10,6 +10,10 @@
   &__icon {
     cursor: pointer;
   }
+}
+
+.bg-light {
+  background: none !important;
 }
 
 .cartItems {
