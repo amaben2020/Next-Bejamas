@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import style from './../styles/featured.module.scss';
 import CartContext from './../context/CartContext';
 import AddToCartButton from './Button/AddToCartButton';
-import ProductContext from './../context/productContext/ProductContext';
+
 interface Product {
   // _id: string;
   // name: string;
@@ -33,7 +33,16 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
     (product: { featured: any }): any => product.featured
   );
 
+  React.useEffect(() => {
+    featured(featuredProduct);
+  }, []);
+
   const { addToCart } = useContext(CartContext);
+
+  const { featured, featuredProduct: feat } = useContext(CartContext);
+
+  const myFeatured = [...featuredProduct];
+  console.log(feat);
 
   return (
     <div className={style.featured}>

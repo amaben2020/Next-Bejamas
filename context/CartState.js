@@ -4,6 +4,7 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   REMOVE_SINGLE_ITEM_FROM_CART,
+  ADD_TO_FEATURED,
 } from './Types';
 import CartContext from './CartContext';
 import CartReducer from './CartReducer';
@@ -12,12 +13,17 @@ const CartState = ({ children }) => {
   const initialState = {
     showCart: false,
     cartItems: [],
+    featuredProduct: [],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   const addToCart = (item) => {
     return dispatch({ type: ADD_TO_CART, payload: item });
+  };
+
+  const featured = (item) => {
+    return dispatch({ type: ADD_TO_FEATURED, payload: item });
   };
 
   const removeFromCart = () => {
@@ -37,9 +43,11 @@ const CartState = ({ children }) => {
       value={{
         showCart: state.showCart,
         cartItems: state.cartItems,
+        featuredProduct: state.featuredProduct,
         addToCart,
         removeFromCart,
         toggleCart,
+        featured,
       }}
     >
       {children}

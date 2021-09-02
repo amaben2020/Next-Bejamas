@@ -69,22 +69,22 @@ const Home: React.FC<ProductCardProps> = ({
             {products?.map((product: Product) => (
               <ProductCard key={product._id} product={product} />
             ))}
+            <div style={{ display: 'flex' }}>
+              <button
+                disabled={page <= 1}
+                onClick={() => router.push(`/?page=${page - 1}`)}
+              >
+                {' '}
+                Prev
+              </button>
+              <button
+                disabled={page >= lastPage}
+                onClick={() => router.push(`/?page=${page + 1}`)}
+              >
+                Next
+              </button>
+            </div>
           </Col>
-          <div style={{ display: 'flex' }}>
-            <button
-              disabled={page <= 1}
-              onClick={() => router.push(`/?page=${page - 1}`)}
-            >
-              {' '}
-              Prev
-            </button>
-            <button
-              disabled={page >= lastPage}
-              onClick={() => router.push(`/?page=${page + 1}`)}
-            >
-              Next
-            </button>
-          </div>
         </Row>
       </main>
     </div>
@@ -94,7 +94,7 @@ const Home: React.FC<ProductCardProps> = ({
 export default React.memo(Home);
 
 export const getServerSideProps = async ({ query: { page = 1 } }) => {
-  const start = +page === 1 ? 0 : (+page - 1) * 3;
+  const start = +page === 1 ? 0 : (+page - 1) * 6;
   const numProductsResponse = await fetch(`${API_URL}/products/count`);
   const numberOfProducts = await numProductsResponse.json();
   const res = await fetch(`${API_URL}/products?_limit=6&_start=${start}`);

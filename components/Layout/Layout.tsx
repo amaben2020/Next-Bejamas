@@ -44,7 +44,7 @@ const Layout = ({ children }: MultiInterface) => {
 
   const fetchProduct = React.useCallback(() => {
     window
-      .fetch('http://localhost:1337/products')
+      .fetch(`${API_URL}/products`)
       .then((res) => res.json())
       .then((d) => setState(d))
       .catch((e) => console.log(e));
