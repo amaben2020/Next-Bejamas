@@ -4,12 +4,6 @@ import CartContext from './../context/CartContext';
 import AddToCartButton from './Button/AddToCartButton';
 
 interface Product {
-  // _id: string;
-  // name: string;
-  // image: string;
-  // price: number;
-  // rating: number;
-  // numReviews: number;
   _id: string;
   details: null;
   name: string;
@@ -37,7 +31,6 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
 
   return (
     <div className={style.featured}>
-      <h1> </h1>
       {featuredProduct?.map(
         (product: {
           name:

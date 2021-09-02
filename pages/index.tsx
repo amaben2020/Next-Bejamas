@@ -149,28 +149,27 @@ const Home: React.FC<ProductCardProps> = ({
   const [sortItemsBy, setSortItemsBy] = useState('title');
 
   const filteredProductData = Object.values(products)
-    .sort((a, b): any => {
-      //order is a variable that ordersBy higher first value
+    .sort((a: any, b: any): any => {
       let order = orderBy === 'asc' ? 1 : -1;
       return a[sortBy] < b[sortBy] ? -1 * order : 1 * order;
     })
     .slice(pagesVisited, pagesVisited + productsPerPage);
 
-  //if you put above the filteredData, the products length would hve changed
   const pageCount = Math.ceil(products.length / productsPerPage);
-  console.log(products.length / 4);
 
   // // This function simply sets the pageNumber value to the selected button
   // //i.e setPageNumber = 5; if there is 5 pageCount
   const changePage = ({ selected }: any) => {
     setPageNumber(selected);
   };
-  // onSortByChange={(mySort) => setSortBy(mySort)}
-  //           onSortItemsByChange={(mySort) => setSortItemsBy(mySort)}
 
-  const onOrderByChange = (mySort: React.SetStateAction<string>) => {
-    return setOrderBy(mySort);
+  const alphabetSort = () => {
+    return filteredProductData.sort((a: any, b: any) =>
+      a.name.localeCompare(b.name)
+    );
   };
+
+  const [sortType, setSortType] = useState('asc');
 
   return (
     <div>
@@ -210,7 +209,9 @@ const Home: React.FC<ProductCardProps> = ({
               &#8595;
             </span>
             <span className={styles.sortText}>Sort By</span>
-            <label htmlFor="price">Price</label>
+            <label className={styles.sortText2} htmlFor="price">
+              Price
+            </label>
             <select name="price" id="price">
               <option onClick={() => setSortBy('price')} />
 
@@ -218,19 +219,15 @@ const Home: React.FC<ProductCardProps> = ({
                 High
               </option>
             </select>
-            <button onClick={() => setSortItemsBy('title')}> price</button>
-            <button onClick={() => setSortBy('price')}> price2</button>
+            {/* <button onClick={() => setSortItemsBy('title')}> price</button>
+            <button onClick={() => setSortBy('price')}> price2</button> */}
           </div>
         </div>
 
         <Row className={styles.productSection__wrapper}>
           <Col lg={3} className={styles.checkboxArea}>
-            {/* <Checkboxes list={category} handleFilters={handleFilters} />
-            <Checkboxes list={price} handleFilters={undefined} /> */}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ab
-            distinctio vel iusto molestias quae cupiditate sit, atque error et
-            laudantium doloremque sapiente sequi illum unde commodi adipisci
-            vitae quos?
+            <Checkboxes list={category} handleFilters={undefined} />
+            <Checkboxes list={price} handleFilters={undefined} />
           </Col>
 
           <Col
@@ -251,9 +248,16 @@ const Home: React.FC<ProductCardProps> = ({
             <button onClick={() => setSortItemsBy('title')}>
               SORT BY TITLE
             </button> */}
-            {filteredProductData?.map((product: Product) => (
+            {filteredProductData?.map((product: any) => (
               <ProductCard key={product._id} product={product} />
             ))}
+
+            {/* {filteredProductData
+              ?.filter((product: any) => !product.featured)
+            
+              .map((product: Product) => (
+                <ProductCard key={product._id} product={product} />
+              ))} */}
 
             {/*
             Uncomment to view serverSide pagination in action

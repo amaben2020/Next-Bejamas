@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './../../styles/descriptionLayout.module.scss';
 import { Col, Row } from 'react-bootstrap';
 interface IDescription {
-  text: string;
-  title: string;
-  category: string;
+  text: any[];
+  title: any[];
+  category: any[];
   recommendations: any;
 }
 
@@ -15,10 +15,10 @@ const Description = ({
   recommendations,
 }: IDescription) => {
   const recSize = Object.values(recommendations)
-    .map((r) => r.image.size)
+    .map((r: any) => r.image.size)
     .filter((size) => size > 50);
   const recSize2 = Object.values(recommendations)
-    .map((r) => r.image.size)
+    .map((r: any) => r.image.size)
     .filter((size) => size < 25);
 
   return (
@@ -59,6 +59,7 @@ const Description = ({
                   | React.ReactPortal
                   | null
                   | undefined;
+                image: any;
               }) => (
                 <img
                   className={

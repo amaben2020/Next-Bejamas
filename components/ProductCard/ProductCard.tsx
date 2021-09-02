@@ -14,8 +14,6 @@ const ProductCard: React.JSXElementConstructor<Product> = ({
   const { addToCart } = useContext(CartContext);
   const { _id, image, name, price, category, bestseller } = product;
 
-  console.log(image);
-
   return (
     <div>
       <div className={styles.card} key={_id}>
