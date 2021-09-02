@@ -58,7 +58,7 @@ const Layout = ({ children }: MultiInterface) => {
     <div className={styles.layout}>
       <>
         <NavigationBar />
-        <div className={style.featured}>
+        {/* <div className={style.featured}>
           <h1> </h1>
           {featuredProduct?.map((product) => (
             <>
@@ -81,7 +81,7 @@ const Layout = ({ children }: MultiInterface) => {
               </div>
             </>
           ))}
-        </div>
+        </div> */}
 
         {children}
       </>

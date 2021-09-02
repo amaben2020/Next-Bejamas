@@ -13,16 +13,13 @@ const NavigationBar = () => {
   return (
     <div className={styles.mynav}>
       <Container>
-        <div
-          className={styles.mynav__wrapper}
-          style={{ justifyContent: 'space-between' }}
-        >
+        <div className={styles.mynav__wrapper}>
           <Navbar.Brand>Bejamas</Navbar.Brand>
           <Navbar.Brand
             className={styles.mynav__icon}
             onClick={toggleCartHandler}
           >
-            Cart
+            Cart {cartItems.length}
           </Navbar.Brand>
 
           {showCart ? <CartItems /> : cartItems.length ? <CartItems /> : null}

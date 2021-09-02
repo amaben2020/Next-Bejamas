@@ -14,40 +14,81 @@ const Description = ({
   title,
   recommendations,
 }: IDescription) => {
+  const recSize = Object.values(recommendations)
+    .map((r) => r.image.size)
+    .filter((size) => size > 50);
+  const recSize2 = Object.values(recommendations)
+    .map((r) => r.image.size)
+    .filter((size) => size < 25);
+
   return (
     <div className={styles.description__layout}>
       <Row>
-        <Col lg={7} className={styles.description__layout__textarea}>
+        <Col
+          lg={7}
+          md={7}
+          sm={7}
+          className={styles.description__layout__textarea}
+        >
           <h2 className={styles.description__layout__textarea__headingLarge}>
             About the {title}
           </h2>
-          <h4>{category}</h4>
+          <h4 className={styles.description__layout__textarea__headingSmall}>
+            {category}
+          </h4>
           <p className={styles.description__layout__text}> {text} </p>
         </Col>
 
-        <Col lg={5} className={styles.description__layout__details}>
+        <Col
+          lg={5}
+          md={5}
+          sm={5}
+          xs={12}
+          className={styles.description__layout__details}
+        >
           <h4 className={styles.description__layout__details__heading}>
             People also buy
           </h4>
-
-          {recommendations?.map(
-            (recommendation: {
-              name:
-                | boolean
-                | React.ReactChild
-                | React.ReactFragment
-                | React.ReactPortal
-                | null
-                | undefined;
-            }) => (
-              <p>{recommendation.name}</p>
-
-              // <img
-              //   src={image && recommendation.image.formats.thumbnail.url}
-              //   alt=""
-              // />
-            )
-          )}
+          <div className={styles.description__layout__details__imageWrapper}>
+            {recommendations?.map(
+              (recommendation: {
+                name:
+                  | boolean
+                  | React.ReactChild
+                  | React.ReactFragment
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+              }) => (
+                <img
+                  className={
+                    styles.description__layout__details__imageWrapper__img
+                  }
+                  src={recommendation.image.url}
+                  alt={recommendation.image.name}
+                />
+              )
+            )}{' '}
+          </div>
+          <div className={styles.description__layout__details__textWrapper}>
+            <h3
+              className={
+                styles.description__layout__details__textWrapper__heading
+              }
+            >
+              Details
+            </h3>
+            <p
+              className={styles.description__layout__details__textWrapper__body}
+            >
+              size: {recSize} * {recSize} pixel
+            </p>
+            <p
+              className={styles.description__layout__details__textWrapper__body}
+            >
+              size: {recSize2}mb
+            </p>
+          </div>
         </Col>
       </Row>
     </div>

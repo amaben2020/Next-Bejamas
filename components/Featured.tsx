@@ -60,7 +60,7 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
         }) => (
           <>
             <div className={style.featured__textBtn}>
-              <h1>{product.name}</h1>
+              <h1 className={style.featured__headerText}>{product.name}</h1>
               <AddToCartButton
                 onClick={() => addToCart(product)}
                 title={'Add To Cart'}

@@ -28,7 +28,7 @@ const ProductCard: React.JSXElementConstructor<Product> = ({
         />
 
         <button className={styles.card__btn} onClick={() => addToCart(product)}>
-          Add to cart
+          ADD TO CART
         </button>
       </div>
       <div className={styles.card__priceArea}>
