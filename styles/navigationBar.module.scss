@@ -10,6 +10,29 @@
   &__icon {
     cursor: pointer;
   }
+
+  &__CartIcon {
+    position: relative;
+
+    &__value {
+      position: absolute;
+      top: 55%;
+      right: -20px;
+      background: #000;
+      width: 1.5vw;
+      color: #fff;
+      text-align: center;
+      padding: 1px;
+      font-family: Archivo;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0.07em;
+      text-align: center;
+      margin: 6px;
+    }
+  }
 }
 
 .bg-light {
@@ -45,11 +68,20 @@
   }
   &__clearBtn {
     position: absolute;
-    top: 70%;
+    top: 90%;
     left: 20%;
     margin-bottom: 4vh;
   }
   &__paddingarea {
-    padding: 1.5rem;
+    padding: 2rem;
+    position: relative;
+
+    &__X {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      font-size: 26px;
+      cursor: pointer;
+    }
   }
 }

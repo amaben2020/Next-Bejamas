@@ -4,7 +4,6 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   REMOVE_SINGLE_ITEM_FROM_CART,
-  ADD_TO_FEATURED,
 } from './Types';
 
 interface Action {
@@ -43,11 +42,6 @@ const CartReducer = (
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],
-      };
-    case ADD_TO_FEATURED:
-      return {
-        ...state,
-        featuredProduct: [...state.featuredProduct, action.payload],
       };
 
     case REMOVE_FROM_CART: {

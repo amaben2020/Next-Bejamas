@@ -12,18 +12,23 @@ interface ICartItems {
 }
 
 const CartItems = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+  const { cartItems, removeFromCart, toggleCart } = useContext(CartContext);
   const cartItem = [...cartItems];
 
   const clearItems = () => {
     return removeFromCart();
   };
 
+  const closeCart = () => toggleCart();
+
   return (
     <div className={styles.cartItems}>
       {' '}
       {cartItem?.map((c: ICartItems) => (
         <div key={c._id} className={styles.cartItems__paddingarea}>
+          <p onClick={clearItems} className={styles.cartItems__paddingarea__X}>
+            &#10006;
+          </p>
           <div className={styles.cartItems__flexarea}>
             <div>
               <p>{c.name}</p>

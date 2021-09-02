@@ -116,7 +116,8 @@ const Home: React.FC<ProductCardProps> = ({
   //   setSelected(newFilters);
   // };
 
-  ////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////
+
   // let productsPerPage = 6;
   // const pageLength = Math.ceil(products.length / productsPerPage);
   // const [pageNumber, setPageNumber] = useState(0);
@@ -130,7 +131,8 @@ const Home: React.FC<ProductCardProps> = ({
   // const changePage = ({ selected }: any) => {
   //   setPageNumber(selected);
   // };
-  ////////////////////////
+
+  //////////////////////////////////////////////////////////////////////
 
   /// PAGINATION LOGIC VERY EASY
   //The pagination state
@@ -150,7 +152,6 @@ const Home: React.FC<ProductCardProps> = ({
     .sort((a, b): any => {
       //order is a variable that ordersBy higher first value
       let order = orderBy === 'asc' ? 1 : -1;
-
       return a[sortBy] < b[sortBy] ? -1 * order : 1 * order;
     })
     .slice(pagesVisited, pagesVisited + productsPerPage);
@@ -184,18 +185,60 @@ const Home: React.FC<ProductCardProps> = ({
             recommendations={recommendations}
           />
         </DescriptionLayout>
+        <div className={styles.photography__section}>
+          <div>
+            <p className={styles.photography__section__headingPrimary}>
+              Photography /{' '}
+              <span className={styles.photography__section__headingSecondary}>
+                {' '}
+                Premium Photos{' '}
+              </span>
+            </p>
+          </div>
+          <div>
+            {' '}
+            <span
+              onClick={() => setOrderBy('asc')}
+              className={styles.sortArrow}
+            >
+              &#8593;
+            </span>
+            <span
+              onClick={() => setOrderBy('desc')}
+              className={styles.sortArrow}
+            >
+              &#8595;
+            </span>
+            <span className={styles.sortText}>Sort By</span>
+            <label htmlFor="price">Price</label>
+            <select name="price" id="price">
+              <option onClick={() => setSortBy('price')} />
+
+              <option onClick={() => setSortBy('price')} value="high">
+                High
+              </option>
+            </select>
+            <button onClick={() => setSortItemsBy('title')}> price</button>
+            <button onClick={() => setSortBy('price')}> price2</button>
+          </div>
+        </div>
 
         <Row className={styles.productSection__wrapper}>
-          <Col lg={3}>
+          <Col lg={3} className={styles.checkboxArea}>
             {/* <Checkboxes list={category} handleFilters={handleFilters} />
             <Checkboxes list={price} handleFilters={undefined} /> */}
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ab
+            distinctio vel iusto molestias quae cupiditate sit, atque error et
+            laudantium doloremque sapiente sequi illum unde commodi adipisci
+            vitae quos?
           </Col>
 
           <Col
             lg={9}
             className={styles.productSection__wrapper__productArea}
-            xs={12}
-            sm={12}
+            // xs={12}
+            // sm={9}
+            // md={9}
           >
             {/* use HTML select */}
             {/* <button onClick={() => setOrderBy('asc')}>ASC</button>
@@ -229,6 +272,7 @@ const Home: React.FC<ProductCardProps> = ({
                 Next
               </button>
             </div> */}
+
             <AppPagination
               pageCount={pageCount}
               onPageChange={changePage}

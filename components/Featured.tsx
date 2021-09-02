@@ -33,16 +33,7 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
     (product: { featured: any }): any => product.featured
   );
 
-  React.useEffect(() => {
-    featured(featuredProduct);
-  }, []);
-
   const { addToCart } = useContext(CartContext);
-
-  const { featured, featuredProduct: feat } = useContext(CartContext);
-
-  const myFeatured = [...featuredProduct];
-  console.log(feat);
 
   return (
     <div className={style.featured}>
