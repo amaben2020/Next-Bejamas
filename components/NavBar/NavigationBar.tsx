@@ -3,7 +3,6 @@ import styles from './../../styles/navigationBar.module.scss';
 import { Container, Navbar } from 'react-bootstrap';
 import CartItems from '../Cart/CartItems';
 import CartContext from './../../context/CartContext';
-import cartImg from './../../public/images/Group 3.1.png';
 import Image from 'next/image';
 const NavigationBar = () => {
   const { toggleCart, cartItems, showCart } = useContext(CartContext);

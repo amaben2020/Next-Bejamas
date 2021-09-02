@@ -25,10 +25,6 @@ const CartState = ({ children }) => {
     return dispatch({ type: REMOVE_FROM_CART });
   };
 
-  const removeSingleItemFromCart = (id) => {
-    return dispatch({ type: REMOVE_SINGLE_ITEM_FROM_CART, payload: id });
-  };
-
   const toggleCart = () => {
     return dispatch({ type: SHOW_HIDE_CART });
   };

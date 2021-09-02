@@ -12,14 +12,12 @@ interface ICartItems {
 }
 
 const CartItems = () => {
-  const { cartItems, removeFromCart, toggleCart } = useContext(CartContext);
+  const { cartItems, removeFromCart } = useContext(CartContext);
   const cartItem = [...cartItems];
 
   const clearItems = () => {
     return removeFromCart();
   };
-
-  const closeCart = () => toggleCart();
 
   return (
     <div className={styles.cartItems}>
