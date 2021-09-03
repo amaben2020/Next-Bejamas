@@ -27,8 +27,14 @@ const NavigationBar = () => {
               onClick={toggleCartHandler}
             >
               <div className={styles.mynav__CartIcon}>
-                <Image src="/Group 3.1.png" alt="me" width="44" height="34" />{' '}
-                <p className={!cartItems.length ? styles.dNone: styles.mynav__CartIcon__value}>
+                <Image src="/Group 3.1.png" alt="me" width="37" height="34" />{' '}
+                <p
+                  className={
+                    !cartItems.length
+                      ? styles.dNone
+                      : styles.mynav__CartIcon__value
+                  }
+                >
                   {cartItems.length}
                 </p>
               </div>
