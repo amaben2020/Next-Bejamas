@@ -33,7 +33,7 @@
   &__text {
     @extend .descriptionText;
     @media screen and (max-width: 768px) {
-      font-size: 14px;
+      font-size: 16px;
       word-wrap: break-word;
     }
   }
@@ -71,13 +71,7 @@
     }
 
     &__heading {
-      font-family: Archivo;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 24px;
-      letter-spacing: 0em;
-      text-align: right;
+      @extend .headingDesc;
       @media screen and (max-width: 575px) {
         text-align: left;
         margin-top: 2vh;
