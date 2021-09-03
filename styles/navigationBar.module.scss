@@ -51,7 +51,7 @@
 }
 
 .cartItems {
-  width: 25vw;
+  width: 30vw;
   height: 30vh;
   border: 2px solid #e5e5e5;
   position: absolute;
@@ -81,6 +81,27 @@
     border-bottom: 1px solid #e5e5e5;
     overflow-y: auto;
     height: 15vh;
+
+    &__text {
+      font-family: Archivo;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #000000;
+    }
+    &__price {
+      font-family: Archivo;
+      font-size: 29px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #656565;
+    }
 
     &__img {
       margin-left: 2vw;

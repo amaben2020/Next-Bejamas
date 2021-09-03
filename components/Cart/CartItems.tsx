@@ -29,8 +29,8 @@ const CartItems = () => {
           </p>
           <div className={styles.cartItems__flexarea}>
             <div>
-              <p>{c.name}</p>
-              <p>{c.price}</p>
+              <p className={styles.cartItems__flexarea__text}>{c.name}</p>
+              <p className={styles.cartItems__flexarea__price}>${c.price}</p>
             </div>
             <div className={styles.cartItems__flexarea__img}>
               <Image

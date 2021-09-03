@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { ReactChild } from 'react';
 import styles from './../../styles/modal.module.scss';
 import FontAwesome from 'react-fontawesome';
-const CustomModal = (props: { children?: any; closeModal?: any }) => {
+const CustomModal = (props: {
+  children?: React.ReactNode;
+  closeModal?: () => void;
+}) => {
   const closeicon = () => (
     <FontAwesome
       name="times"
@@ -23,7 +26,6 @@ const CustomModal = (props: { children?: any; closeModal?: any }) => {
     <div className={styles.overlay}>
       <div className={styles.content}>
         {closeicon()}
-
         {props.children}
       </div>
     </div>

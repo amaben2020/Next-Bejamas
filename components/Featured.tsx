@@ -67,6 +67,30 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
           </>
         )
       )}
+      <div className={style.featured__show}>
+        {featuredProduct?.map(
+          (product: {
+            name:
+              | boolean
+              | React.ReactChild
+              | React.ReactFragment
+              | React.ReactPortal
+              | null
+              | undefined;
+            image: { formats: { large: { url: string | undefined } } };
+          }) => (
+            <>
+              <div className={style.featured__show}>
+                <AddToCartButton
+                  onClick={() => addToCart(product)}
+                  title={'Add To Cart'}
+                  fullWidth="fullWidth"
+                />
+              </div>
+            </>
+          )
+        )}
+      </div>
     </div>
   );
 };

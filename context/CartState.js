@@ -1,10 +1,5 @@
-import { useContext, useReducer } from 'react';
-import {
-  SHOW_HIDE_CART,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-  REMOVE_SINGLE_ITEM_FROM_CART,
-} from './Types';
+import { useReducer } from 'react';
+import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_FROM_CART } from './Types';
 import CartContext from './CartContext';
 import CartReducer from './CartReducer';
 

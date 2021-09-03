@@ -5,6 +5,7 @@ import styles from './../../../styles/checkbox.module.scss';
 const Checkboxes = ({ list, handleFilters }) => {
   const [checkedArray, setCheckedArray] = useState([]);
   console.log(list);
+  console.log(checkedArray);
 
   const onChangeHandler = (checkboxId) => {
     //simply selects the checkboxId that matches the id in the array

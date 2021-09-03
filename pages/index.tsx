@@ -11,18 +11,14 @@ import Layout from '../components/Layout/Layout';
 import Filter from './../components/Filtration/app';
 import Checkboxes from './../components/Filtration/Checkboxes/checkboxes';
 import AppPagination from './../components/Pagination/PaginationButton';
-import {
-  data,
-  listCheckboxesRating,
-  listCheckboxesGenre,
-  category,
-  price,
-} from './../components/Filtration/data';
+import { category, price } from './../components/Filtration/data';
 import Image from 'next/image';
 import CustomModal from '../components/Modal/CustomModal';
 import style from './../styles/modal.module.scss';
 import AddToCartButton from '../components/Button/AddToCartButton';
 import styled from './../styles/featured.module.scss';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 interface Product {
   _id: string;
   details: null;
@@ -54,96 +50,11 @@ const Home: React.FC<ProductCardProps> = ({
   const productDetails = Object.values(products).filter(
     (prod: any) => prod.featured
   );
-
-  const [show, setShow] = useState(false);
-
   const [status, setStatus] = useState(false);
 
-  const toggleModal = () => setShow(!show);
-
-  // const [myProducts, setMyProducts] = useState(products);
-
-  // //evaluation array
-  // const [selected, setSelected] = useState({
-  //   rating: [],
-  //   genre: [],
-  //   category: [],
-  //   price: [],
-  // });
-
-  // const handleFilters = (checkboxState: any, key: string | number) => {
-  //   const logic = 'AND';
-  //   //This is how we filter based on category, it holds the array value
-  //   //checkboxState gives the index of the newFiltered state using indexOf
-  //   const newFilters = { ...selected };
-  //   // key is the array index from the checkbox state
-  //   newFilters[key] = checkboxState;
-
-  //   const hasRatings = newFilters.rating.length > 0;
-  //   const hasGenres = newFilters.genre.length > 0;
-  //   const hasCategory = newFilters.category.length > 0;
-  //   const hasPrice = newFilters.price.length > 0;
-  //   //advanced pattern to ensure strict criteria
-  //   const hasFilters = hasRatings || hasGenres || hasCategory || hasPrice;
-  //   const filterRating = (module: {
-  //     id?: number;
-  //     title?: string;
-  //     rating: any;
-  //     genre?: string;
-  //     category?: string;
-  //     price?: number;
-  //   }) =>
-  //     newFilters.rating.includes(0) ||
-  //     newFilters.rating.includes(module.rating);
-  //   const filterGenre = (module) =>
-  //     newFilters.genre.includes('') || newFilters.genre.includes(module.genre);
-
-  //   const filterCategory = (module: { category: any }) =>
-  //     newFilters.category.includes('') ||
-  //     newFilters.category.includes(module.category);
-  //   console.log('catt', newFilters.category);
-
-  //   const filterPrice = (module) =>
-  //     newFilters.price.includes('') || newFilters.price.includes(module.price);
-
-  //   //this filteredMovies simply extracts the movies based on the categories
-  //   const filteredMovies = myProducts.filter(
-  //     logic === 'OR'
-  //       ? (m) =>
-  //           !hasFilters ||
-  //           filterRating(m) ||
-  //           filterGenre(m) ||
-  //           filterCategory(m) ||
-  //           filterPrice(m) // OR
-  //       : (m) =>
-  //           !hasFilters ||
-  //           ((!hasRatings || filterRating(m)) &&
-  //             (!hasPrice || filterPrice(m)) &&
-  //             (!hasGenres || filterGenre(m)) &&
-  //             (!hasCategory || filterCategory(m))) // AND
-  //   );
-
-  //   setMyProducts(filteredMovies);
-  //   setSelected(newFilters);
-  // };
-
-  ////////////////////////////////////////////////////////////////////
-
-  // let productsPerPage = 6;
-  // const pageLength = Math.ceil(products.length / productsPerPage);
-  // const [pageNumber, setPageNumber] = useState(0);
-  // const pagesVisited = pageNumber * productsPerPage;
-
-  // const filteredProducts = Object.values(products).slice(
-  //   pagesVisited,
-  //   pagesVisited + productsPerPage
-  // );
-
-  // const changePage = ({ selected }: any) => {
-  //   setPageNumber(selected);
-  // };
-
-  //////////////////////////////////////////////////////////////////////
+  const category = products.map(
+    (product: { category: any }) => product.category
+  );
 
   /// PAGINATION LOGIC VERY EASY
   //The pagination state
@@ -177,13 +88,6 @@ const Home: React.FC<ProductCardProps> = ({
     <div>
       <main>
         <Featured product={products} />
-        <div className={styled.featured__show}>
-          <AddToCartButton
-            onClick={() => addToCart(product)}
-            title={'Add To Cart'}
-            fullWidth="fullWidth"
-          />
-        </div>
 
         <DescriptionLayout>
           <Description
