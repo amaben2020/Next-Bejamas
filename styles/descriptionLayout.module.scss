@@ -2,7 +2,6 @@
 .description__layout {
   margin-top: 4vh;
   display: flex;
-
   border-bottom: 2px solid #e5e5e5;
 
   &__textarea {
@@ -63,20 +62,10 @@
         }
       }
       &__body {
-        font-family: Archivo;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 17px;
-        text-align: right;
-        color: #656565;
+        @extend .textBody;
         @media screen and (max-width: 575px) {
           text-align: left;
           margin-top: 2vh;
-        }
-
-        @media screen and (max-width: 900px) {
-          // text-align: center;
         }
       }
     }
