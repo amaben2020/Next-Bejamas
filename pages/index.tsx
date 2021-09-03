@@ -4,10 +4,8 @@ import { API_URL } from './../data/endpoint/index';
 import Featured from '../components/Featured';
 import DescriptionLayout from '../components/Layout/DescriptionLayout';
 import Description from '../components/Description/Description';
-import { useRouter } from 'next/router';
 import { Col, Row } from 'react-bootstrap';
 import styles from './../styles/product.module.scss';
-
 import Filter from './../components/Filtration/app';
 import Checkboxes from './../components/Filtration/Checkboxes/checkboxes';
 import AppPagination from './../components/Pagination/PaginationButton';
@@ -45,16 +43,9 @@ const Home: React.FC<ProductCardProps> = ({
   );
   const [status, setStatus] = useState(false);
 
-  const categoryy = products.map(
-    (product: { category: any }) => product.category
-  );
-
-  /// PAGINATION LOGIC
-  //The pagination state
+  /// PAGINATION LOGIC AND SORT LOGIC
   const [pageNumber, setPageNumber] = React.useState(0);
-  //The pagination state appointmentData per page
   const productsPerPage = 6;
-  // i.e 0 * 5; how many list items to display //5 items per page
   const pagesVisited = pageNumber * productsPerPage;
 
   const [sortBy, setSortBy] = useState('price');
@@ -71,7 +62,6 @@ const Home: React.FC<ProductCardProps> = ({
     .slice(pagesVisited, pagesVisited + productsPerPage);
 
   const pageCount = Math.ceil(products.length / productsPerPage);
-
   const changePage = ({ selected }: any) => {
     setPageNumber(selected);
   };
@@ -80,7 +70,6 @@ const Home: React.FC<ProductCardProps> = ({
     <div>
       <main>
         <Featured product={products} />
-
         <DescriptionLayout>
           <Description
             text={productDetails.map((d: any) => d.details)}
@@ -119,8 +108,8 @@ const Home: React.FC<ProductCardProps> = ({
             </label>
             <select>
               <option> </option>
-              <option value="low">Low</option>
-              <option value="high">High</option>
+              <option value="low"> </option>
+              <option value="high"> </option>
             </select>
           </div>
           <div className={styles.photography__section__modal}>
@@ -219,7 +208,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-//I have created 2 types of pagination (serverSide and clientSide), please uncomment to view the different implementations. Thanks
+//I have created 2 types of pagination (serverSide and clientSide), feel free to uncomment to view the second implementation. Thanks
 
 // export const getServerSideProps = async ({ query: { page = 1 } }) => {
 //   const start = +page === 1 ? 0 : (+page - 1) * 6;

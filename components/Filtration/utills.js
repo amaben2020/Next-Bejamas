@@ -12,7 +12,7 @@ export const handleToggle = (checkboxId, previousState) => {
   //This basically sets the currentIndex to the index of the checkboxId
   //i.e previousState = [0, 1, 2, 3, 4, 5]   checkboxId = 2; currentIndex = 2
   let newCheckedArray = [...previousState];
-  console.log(newCheckedArray);
+
   if (currentIndex === -1) {
     //this means that nothing is selected
     if (checkboxId === 0) {

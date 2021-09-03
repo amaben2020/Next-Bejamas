@@ -70,6 +70,10 @@
   @extend .h2;
   color: #9b9b9b;
   cursor: pointer;
+
+  &:hover {
+    color: #4e4e4e;
+  }
 }
 
 .myCheckBoxTitle {

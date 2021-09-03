@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Checkboxes from './Checkboxes/checkboxes';
 
 const App = () => {
   const [products, setProducts] = useState([]);
-
-  const category = products.map((product) => product.category);
 
   const fetchData = React.useCallback(() => {
     window
@@ -17,6 +15,8 @@ const App = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  const category = products?.map((product) => product.category);
   //evaluation array
   const [selected, setSelected] = useState({
     category: [],
@@ -48,8 +48,8 @@ const App = () => {
     const filterPrice = (module) =>
       newFilters.price.includes('') || newFilters.price.includes(module.price);
 
-    //this filteredMovies simply extracts the movies based on the categories
-    const filteredProducts = category.filter(
+    //this filteredProducts simply extracts the movies based on the categories
+    const filteredProducts = products.filter(
       logic === 'OR'
         ? (m) => !hasFilters || filterCategory(m) || filterPrice(m) // OR
         : (m) =>
@@ -76,7 +76,7 @@ const App = () => {
 
       <div className="row">
         <div className="col">
-          <h1>Filter by Genre</h1>
+          <h1>Filter by Category</h1>
           <Checkboxes
             list={category}
             handleFilters={(checkboxState) =>
