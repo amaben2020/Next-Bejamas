@@ -55,6 +55,8 @@ const Home: React.FC<ProductCardProps> = ({
 
   const [show, setShow] = useState(false);
 
+  const [status, setStatus] = useState(false);
+
   const toggleModal = () => setShow(!show);
 
   // const [myProducts, setMyProducts] = useState(products);
@@ -222,13 +224,20 @@ const Home: React.FC<ProductCardProps> = ({
             {/* <button onClick={() => setSortItemsBy('title')}> price</button>
             <button onClick={() => setSortBy('price')}> price2</button> */}
           </div>
-          <div>
-            <button onClick={toggleModal}>
+          <div className={styles.photography__section__modal}>
+            <div onClick={() => setStatus(true)}>
               {' '}
               <Image src="/modalIcon.svg" height="30" width="35" />{' '}
-            </button>
+            </div>
 
-            {show && <CustomModal />}
+            <div>
+              {status && (
+                <CustomModal closeModal={() => setStatus(false)}>
+                  {' '}
+                  <p>The content of the modal</p>
+                </CustomModal>
+              )}
+            </div>
           </div>
         </div>
 

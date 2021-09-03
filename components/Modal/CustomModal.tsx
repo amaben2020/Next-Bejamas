@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
-const CustomModal = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+import React from 'react';
+import styles from './../../styles/modal.module.scss';
+import FontAwesome from 'react-fontawesome';
+const CustomModal = (props: { children?: any; closeModal?: any }) => {
+  const closeicon = () => (
+    <FontAwesome
+      name="times"
+      onClick={closeModal}
+      style={{
+        color: '#000000',
+        padding: '10px',
+        cursor: 'pointer',
+        backgroundColor: 'transparent',
+        border: 0,
+        position: 'absolute',
+        top: '0.3rem',
+        right: '0.5rem',
+      }}
+    />
+  );
+  const { closeModal } = props;
   return (
-    <div>
-      <>
-        {/* <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
-        </Button> */}
-
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
+    <div className={styles.overlay}>
+      <div className={styles.content}>
+        {closeicon()}
+        {props.children}
+      </div>
     </div>
   );
 };
