@@ -1,6 +1,5 @@
 .mynav {
   border-bottom: 3px solid #e5e5e5;
-  // padding: 12vh;
   position: relative;
 
   &__wrapper {
@@ -8,6 +7,11 @@
     justify-content: space-between;
 
     &__minMargin {
+      @media screen and (min-width: 1366px) {
+        margin-left: -3vw;
+        padding: 0;
+      }
+
       margin-left: -3vw;
       padding: 0;
     }

@@ -140,7 +140,7 @@ const Home: React.FC<ProductCardProps> = ({
               {status && (
                 <CustomModal closeModal={() => setStatus(false)}>
                   {' '}
-                  <p>Filter</p>
+                  <p className={style.modalText}>Filter</p>
                   <Checkboxes list={category} handleFilters={undefined} />
                   <Checkboxes list={price} handleFilters={undefined} />
                   <div className={style.modalButtonArea}>
@@ -168,34 +168,10 @@ const Home: React.FC<ProductCardProps> = ({
             <Checkboxes list={price} handleFilters={undefined} />
           </Col>
 
-          <Col
-            lg={9}
-            className={styles.productSection__wrapper__productArea}
-            // xs={12}
-            // sm={9}
-            // md={9}
-          >
-            {/* use HTML select */}
-            {/* <button onClick={() => setOrderBy('asc')}>ASC</button>
-            <button onClick={() => setOrderBy('desc')}>DESC</button>
-
-            <button onClick={() => setOrderBy('asc')}>HIGHEST PRICE</button>
-            <button onClick={() => setOrderBy('desc')}>LOWEST PRICE</button>
-
-            <button onClick={() => setSortBy('price')}>SORT BY PRICE</button>
-            <button onClick={() => setSortItemsBy('title')}>
-              SORT BY TITLE
-            </button> */}
+          <Col lg={9} className={styles.productSection__wrapper__productArea}>
             {filteredProductData?.map((product: any) => (
               <ProductCard key={product._id} product={product} />
             ))}
-
-            {/* {filteredProductData
-              ?.filter((product: any) => !product.featured)
-            
-              .map((product: Product) => (
-                <ProductCard key={product._id} product={product} />
-              ))} */}
 
             {/*
             Uncomment to view serverSide pagination in action
@@ -230,6 +206,20 @@ const Home: React.FC<ProductCardProps> = ({
 
 export default React.memo(Home);
 
+export const getServerSideProps = async () => {
+  const res = await fetch(`${API_URL}/products`);
+  const products = await res.json();
+  const request = await fetch(`${API_URL}/recommendations`);
+  const recommendations = await request.json();
+
+  return {
+    props: {
+      products,
+      recommendations,
+    },
+  };
+};
+
 //I have created 2 types of pagination (serverSide and clientSide), please uncomment to view the different implementations. Thanks
 
 // export const getServerSideProps = async ({ query: { page = 1 } }) => {
@@ -252,17 +242,3 @@ export default React.memo(Home);
 //
 //   };
 // };
-
-export const getServerSideProps = async () => {
-  const res = await fetch(`${API_URL}/products`);
-  const products = await res.json();
-  const request = await fetch(`${API_URL}/recommendations`);
-  const recommendations = await request.json();
-
-  return {
-    props: {
-      products,
-      recommendations,
-    },
-  };
-};
