@@ -135,6 +135,8 @@ const Home: React.FC<ProductCardProps> = ({
                   {' '}
                   <p className={style.modalText}>Filter</p>
                   <Checkboxes list={category} handleFilters={undefined} />
+                  <hr />
+                  <p className={style.modalText}>Price range</p>
                   <Checkboxes list={price} handleFilters={undefined} />
                   <div className={style.modalButtonArea}>
                     {' '}
@@ -158,6 +160,10 @@ const Home: React.FC<ProductCardProps> = ({
           <Col lg={3} className={styles.checkboxArea}>
             <h2 className={styles.myCheckBoxTitle}>Category</h2>
             <Checkboxes list={category} handleFilters={undefined} />
+
+            <hr />
+
+            <h2 className={styles.myCheckBoxTitle}>Price range</h2>
             <Checkboxes list={price} handleFilters={undefined} />
           </Col>
 

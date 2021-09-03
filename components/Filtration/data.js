@@ -146,6 +146,24 @@ export const category = [
     label: 'Food',
     value: 'Toys',
   },
+  {
+    id: 5,
+    name: 'toys',
+    label: 'Cities',
+    value: 'Toys',
+  },
+  {
+    id: 6,
+    name: 'toys',
+    label: 'Nature',
+    value: 'Toys',
+  },
+  {
+    id: 7,
+    name: 'toys',
+    label: 'Premium',
+    value: 'Toys',
+  },
 ];
 
 export const price = [
