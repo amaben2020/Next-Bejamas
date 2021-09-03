@@ -170,31 +170,25 @@ export const price = [
   {
     id: 0,
     name: '$1233',
-    label: '$1233',
+    label: 'Lower than $20',
     value: 1233,
   },
   {
     id: 1,
     name: '$300',
-    label: '$300',
+    label: '$20 - $100',
     value: 300,
   },
   {
     id: 2,
     name: '$950',
-    label: '$950',
+    label: '$100 - $200',
     value: 950,
   },
   {
     id: 3,
     name: '$100',
-    label: '$100',
+    label: 'More than $200',
     value: 100,
-  },
-  {
-    id: 4,
-    name: '$500',
-    label: '$500',
-    value: 500,
   },
 ];
