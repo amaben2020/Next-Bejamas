@@ -118,8 +118,9 @@ const Home: React.FC<ProductCardProps> = ({
               Price
             </label>
             <select>
-              <option value="low">low</option>
-              <option value="high">Members</option>
+              <option> </option>
+              <option value="low">Low</option>
+              <option value="high">High</option>
             </select>
           </div>
           <div className={styles.photography__section__modal}>
