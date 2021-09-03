@@ -7,7 +7,7 @@ import Description from '../components/Description/Description';
 import { useRouter } from 'next/router';
 import { Col, Row } from 'react-bootstrap';
 import styles from './../styles/product.module.scss';
-import Layout from '../components/Layout/Layout';
+
 import Filter from './../components/Filtration/app';
 import Checkboxes from './../components/Filtration/Checkboxes/checkboxes';
 import AppPagination from './../components/Pagination/PaginationButton';
@@ -16,9 +16,7 @@ import Image from 'next/image';
 import CustomModal from '../components/Modal/CustomModal';
 import style from './../styles/modal.module.scss';
 import AddToCartButton from '../components/Button/AddToCartButton';
-import styled from './../styles/featured.module.scss';
-import { useContext } from 'react';
-import CartContext from '../context/CartContext';
+
 interface Product {
   _id: string;
   details: null;
@@ -39,8 +37,7 @@ interface ProductCardProps {
 
 const Home: React.FC<ProductCardProps> = ({
   products,
-  page,
-  numberOfProducts,
+
   recommendations,
 }: any) => {
   const productDetails = Object.values(products).filter(
@@ -52,10 +49,9 @@ const Home: React.FC<ProductCardProps> = ({
     (product: { category: any }) => product.category
   );
 
-  /// PAGINATION LOGIC VERY EASY
+  /// PAGINATION LOGIC
   //The pagination state
   const [pageNumber, setPageNumber] = React.useState(0);
-  console.log(pageNumber);
   //The pagination state appointmentData per page
   const productsPerPage = 6;
   // i.e 0 * 5; how many list items to display //5 items per page
@@ -121,13 +117,9 @@ const Home: React.FC<ProductCardProps> = ({
             <label className={styles.sortText2} htmlFor="price">
               Price
             </label>
-            <select value="price" name="price" id="price">
-              <option onClick={() => setOrderBy('asc')} value="High">
-                Low
-              </option>
-              <option onClick={() => setOrderBy('desc')} value="Low">
-                High
-              </option>
+            <select>
+              <option value="low">low</option>
+              <option value="high">Members</option>
             </select>
           </div>
           <div className={styles.photography__section__modal}>
