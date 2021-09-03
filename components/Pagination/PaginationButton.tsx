@@ -15,8 +15,8 @@ const Pagination = ({ pageCount, onPageChange, currentCount }: IProps) => {
       <div className={styles.paginationWrapper}>
         <span className={styles.paginationText}></span>
         <ReactPaginate
-          previousLabel={currentCount > 6 ? null : svgLeft}
-          nextLabel={svgRight}
+          previousLabel={currentCount < 1 ? null : svgLeft}
+          nextLabel={currentCount >= 3 ? null : svgRight}
           pageCount={pageCount}
           pageRangeDisplayed={6}
           marginPagesDisplayed={4}

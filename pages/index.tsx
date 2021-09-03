@@ -43,22 +43,19 @@ const Home: React.FC<ProductCardProps> = ({
   numberOfProducts,
   recommendations,
 }: any) => {
-  const lastPage = Math.ceil(numberOfProducts / 3);
-
-  const router = useRouter();
-
   const productDetails = Object.values(products).filter(
     (prod: any) => prod.featured
   );
   const [status, setStatus] = useState(false);
 
-  const category = products.map(
+  const categoryy = products.map(
     (product: { category: any }) => product.category
   );
 
   /// PAGINATION LOGIC VERY EASY
   //The pagination state
   const [pageNumber, setPageNumber] = React.useState(0);
+  console.log(pageNumber);
   //The pagination state appointmentData per page
   const productsPerPage = 6;
   // i.e 0 * 5; how many list items to display //5 items per page
@@ -75,7 +72,6 @@ const Home: React.FC<ProductCardProps> = ({
       let order = orderBy === 'asc' ? 1 : -1;
       return a[sortBy] < b[sortBy] ? -1 * order : 1 * order;
     })
-
     .slice(pagesVisited, pagesVisited + productsPerPage);
 
   const pageCount = Math.ceil(products.length / productsPerPage);
@@ -125,17 +121,14 @@ const Home: React.FC<ProductCardProps> = ({
             <label className={styles.sortText2} htmlFor="price">
               Price
             </label>
-            <select name="price" id="price">
+            <select value="price" name="price" id="price">
               <option onClick={() => setOrderBy('asc')} value="High">
                 Low
               </option>
-
               <option onClick={() => setOrderBy('desc')} value="Low">
                 High
               </option>
             </select>
-            {/* <button onClick={() => setSortItemsBy('title')}> price</button>
-            <button onClick={() => setSortBy('price')}> price2</button> */}
           </div>
           <div className={styles.photography__section__modal}>
             <div onClick={() => setStatus(true)}>
@@ -226,7 +219,7 @@ const Home: React.FC<ProductCardProps> = ({
               pageCount={pageCount}
               onPageChange={changePage}
               pageRangeDisplayed={6}
-              currentCount={productsPerPage}
+              currentCount={pageNumber}
             />
           </Col>
         </Row>

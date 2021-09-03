@@ -125,25 +125,25 @@ export const category = [
   {
     id: 1,
     name: 'shoes',
-    label: 'Shoes',
+    label: 'Pets',
     value: 'Shoes',
   },
   {
     id: 2,
-    name: 'shirts',
+    name: 'Arts',
     label: 'Shirts',
     value: 'Shirts',
   },
   {
     id: 3,
     name: 'womens',
-    label: 'womens',
+    label: 'Landmark',
     value: 'Womens',
   },
   {
     id: 4,
     name: 'toys',
-    label: 'toys',
+    label: 'Food',
     value: 'Toys',
   },
 ];
