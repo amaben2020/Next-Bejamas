@@ -18,6 +18,9 @@ import {
   category,
   price,
 } from './../components/Filtration/data';
+import Image from 'next/image';
+import CustomModal from '../components/Modal/CustomModal';
+import { Modal } from 'react-bootstrap';
 interface Product {
   _id: string;
   details: null;
@@ -49,6 +52,10 @@ const Home: React.FC<ProductCardProps> = ({
   const productDetails = Object.values(products).filter(
     (prod: any) => prod.featured
   );
+
+  const [show, setShow] = useState(false);
+
+  const toggleModal = () => setShow(!show);
 
   // const [myProducts, setMyProducts] = useState(products);
 
@@ -153,23 +160,14 @@ const Home: React.FC<ProductCardProps> = ({
       let order = orderBy === 'asc' ? 1 : -1;
       return a[sortBy] < b[sortBy] ? -1 * order : 1 * order;
     })
+
     .slice(pagesVisited, pagesVisited + productsPerPage);
 
   const pageCount = Math.ceil(products.length / productsPerPage);
 
-  // // This function simply sets the pageNumber value to the selected button
-  // //i.e setPageNumber = 5; if there is 5 pageCount
   const changePage = ({ selected }: any) => {
     setPageNumber(selected);
   };
-
-  const alphabetSort = () => {
-    return filteredProductData.sort((a: any, b: any) =>
-      a.name.localeCompare(b.name)
-    );
-  };
-
-  const [sortType, setSortType] = useState('asc');
 
   return (
     <div>
@@ -194,7 +192,7 @@ const Home: React.FC<ProductCardProps> = ({
               </span>
             </p>
           </div>
-          <div>
+          <div className={styles.photography__section__sort}>
             {' '}
             <span
               onClick={() => setOrderBy('asc')}
@@ -213,19 +211,30 @@ const Home: React.FC<ProductCardProps> = ({
               Price
             </label>
             <select name="price" id="price">
-              <option onClick={() => setSortBy('price')} />
+              <option onClick={() => setOrderBy('asc')} value="High">
+                Low
+              </option>
 
-              <option onClick={() => setSortBy('price')} value="high">
+              <option onClick={() => setOrderBy('desc')} value="Low">
                 High
               </option>
             </select>
             {/* <button onClick={() => setSortItemsBy('title')}> price</button>
             <button onClick={() => setSortBy('price')}> price2</button> */}
           </div>
+          <div>
+            <button onClick={toggleModal}>
+              {' '}
+              <Image src="/modalIcon.svg" height="30" width="35" />{' '}
+            </button>
+
+            {show && <CustomModal />}
+          </div>
         </div>
 
         <Row className={styles.productSection__wrapper}>
           <Col lg={3} className={styles.checkboxArea}>
+            <h2 className={styles.myCheckBoxTitle}>Category</h2>
             <Checkboxes list={category} handleFilters={undefined} />
             <Checkboxes list={price} handleFilters={undefined} />
           </Col>

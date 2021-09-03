@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { handleToggle } from './../utills';
+import styles from './../../../styles/checkbox.module.scss';
 
 const Checkboxes = ({ list, handleFilters }) => {
   const [checkedArray, setCheckedArray] = useState([]);
@@ -18,14 +19,17 @@ const Checkboxes = ({ list, handleFilters }) => {
   return list.map((item, index) => {
     console.log(checkedArray.indexOf(item.id) !== -1);
     return (
-      <div key={index}>
+      <div key={index} className={styles.myCheckbox}>
         <input
+          className={styles.myCheckbox__input}
           type="checkbox"
           id={item.name}
           checked={checkedArray.indexOf(item.id) !== -1}
           onChange={() => onChangeHandler(item.id)}
         />
-        <label htmlFor={item.name}>{item.label} </label>
+        <label className={styles.myCheckbox__label} htmlFor={item.name}>
+          {item.label}{' '}
+        </label>
       </div>
     );
   });

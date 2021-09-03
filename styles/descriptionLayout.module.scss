@@ -1,3 +1,4 @@
+@use './typography.modules.scss';
 .description__layout {
   margin-top: 4vh;
   display: flex;
@@ -6,12 +7,7 @@
 
   &__textarea {
     &__headingLarge {
-      font-family: Archivo;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 24px;
-      letter-spacing: 0em;
+      @extend .h2;
       text-align: left;
       @media screen and (max-width: 768px) {
         font-size: 20px;
@@ -56,13 +52,11 @@
   }
 
   &__details {
-    // display: flex;
     text-align: left;
     justify-content: flex-end;
     margin-bottom: 10vh;
 
     @media screen and (max-width: 575px) {
-      // margin-left: -58vw;
     }
 
     &__textWrapper {
@@ -73,11 +67,7 @@
       }
 
       &__heading {
-        font-family: Archivo;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px;
+        @extend .h2;
         text-align: right;
         @media screen and (max-width: 575px) {
           text-align: left;
