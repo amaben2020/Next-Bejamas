@@ -32,7 +32,7 @@ const CartItems = () => {
               <p>{c.name}</p>
               <p>{c.price}</p>
             </div>
-            <div style={{ marginLeft: '2vw' }}>
+            <div className={styles.cartItems__flexarea__img}>
               <Image
                 src={c.image.formats.thumbnail.url}
                 alt={c.name}

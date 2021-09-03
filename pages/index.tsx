@@ -22,6 +22,7 @@ import Image from 'next/image';
 import CustomModal from '../components/Modal/CustomModal';
 import style from './../styles/modal.module.scss';
 import AddToCartButton from '../components/Button/AddToCartButton';
+import styled from './../styles/featured.module.scss';
 interface Product {
   _id: string;
   details: null;
@@ -176,6 +177,13 @@ const Home: React.FC<ProductCardProps> = ({
     <div>
       <main>
         <Featured product={products} />
+        <div className={styled.featured__show}>
+          <AddToCartButton
+            onClick={() => addToCart(product)}
+            title={'Add To Cart'}
+            fullWidth="fullWidth"
+          />
+        </div>
 
         <DescriptionLayout>
           <Description

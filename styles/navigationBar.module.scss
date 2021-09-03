@@ -31,6 +31,17 @@
       letter-spacing: 0.07em;
       text-align: center;
       margin: 6px;
+
+      @media screen and (min-width: 1071px) {
+        right: -1.5vw;
+        padding: 3px;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 23px;
+        right: -4vw;
+        padding: 3px;
+        width: 5vw;
+      }
     }
   }
 }
@@ -50,6 +61,11 @@
   overflow-y: scroll;
   z-index: 5;
 
+  @media screen and (max-width: 768px) {
+    right: 10;
+    width: 35vw;
+  }
+
   &__cartBtn {
     position: absolute;
     bottom: 0;
@@ -65,6 +81,10 @@
     border-bottom: 1px solid #e5e5e5;
     overflow-y: auto;
     height: 15vh;
+
+    &__img {
+      margin-left: 2vw;
+    }
   }
   &__clearBtn {
     position: absolute;

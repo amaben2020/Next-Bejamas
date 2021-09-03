@@ -24,6 +24,18 @@
     }
   }
 
+  &__hide {
+    @media screen and (max-width: 558px) {
+      display: none;
+    }
+  }
+
+  &__show {
+    @media screen and (min-width: 558px) {
+      display: none;
+    }
+  }
+
   &__featuredImage {
     position: relative;
     width: 100%;

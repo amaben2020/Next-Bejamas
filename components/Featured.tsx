@@ -45,17 +45,21 @@ const Featured: React.JSXElementConstructor<ProductCardProps> = ({
           <>
             <div className={style.featured__textBtn}>
               <h1 className={style.featured__headerText}>{product.name}</h1>
-              <AddToCartButton
-                onClick={() => addToCart(product)}
-                title={'Add To Cart'}
-              />
+              <div className={style.featured__hide}>
+                <AddToCartButton
+                  onClick={() => addToCart(product)}
+                  title={'Add To Cart'}
+                />
+              </div>
             </div>
+
             <div className={style.featured__wrapper}>
               <img
                 src={product.image && product.image.formats.large.url}
                 className={style.featured__featuredImage}
                 alt=""
               />
+
               <div className={style.featured__photoOfTheDay}>
                 Photo of the day
               </div>
