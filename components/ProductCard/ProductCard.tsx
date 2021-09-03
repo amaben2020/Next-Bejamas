@@ -19,7 +19,9 @@ const ProductCard: React.JSXElementConstructor<Product> = ({
     <div>
       <div className={styles.card} key={_id}>
         <div>
-          {bestseller && <p className={styles.card__bestseller}> Bestseller</p>}
+          {bestseller && (
+            <p className={styles.card__bestseller}> Best Seller</p>
+          )}
         </div>
         <Image
           width="500"
