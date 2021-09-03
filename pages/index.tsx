@@ -6,7 +6,6 @@ import DescriptionLayout from '../components/Layout/DescriptionLayout';
 import Description from '../components/Description/Description';
 import { Col, Row } from 'react-bootstrap';
 import styles from './../styles/product.module.scss';
-import Filter from './../components/Filtration/app';
 import Checkboxes from './../components/Filtration/Checkboxes/checkboxes';
 import AppPagination from './../components/Pagination/PaginationButton';
 import { category, price } from './../components/Filtration/data';
@@ -35,7 +34,6 @@ interface ProductCardProps {
 
 const Home: React.FC<ProductCardProps> = ({
   products,
-
   recommendations,
 }: any) => {
   const productDetails = Object.values(products).filter(

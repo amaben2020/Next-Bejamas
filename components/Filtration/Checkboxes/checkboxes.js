@@ -16,7 +16,6 @@ const Checkboxes = ({ list, handleFilters }) => {
   };
 
   return list.map((item, index) => {
-    console.log(checkedArray.indexOf(item.id) !== -1);
     return (
       <div key={index} className={styles.myCheckbox}>
         <input
