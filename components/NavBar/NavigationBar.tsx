@@ -28,7 +28,7 @@ const NavigationBar = () => {
             >
               <div className={styles.mynav__CartIcon}>
                 <Image src="/Group 3.1.png" alt="me" width="44" height="34" />{' '}
-                <p className={styles.mynav__CartIcon__value}>
+                <p className={!cartItems.length ? styles.dNone: styles.mynav__CartIcon__value}>
                   {cartItems.length}
                 </p>
               </div>
