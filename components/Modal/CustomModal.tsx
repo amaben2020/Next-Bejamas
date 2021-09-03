@@ -23,6 +23,7 @@ const CustomModal = (props: { children?: any; closeModal?: any }) => {
     <div className={styles.overlay}>
       <div className={styles.content}>
         {closeicon()}
+
         {props.children}
       </div>
     </div>

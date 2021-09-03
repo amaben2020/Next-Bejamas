@@ -42,7 +42,11 @@ const CartItems = () => {
             </div>
           </div>
           <div className={styles.cartItems__clearBtn}>
-            <AddToCartButton title={' Clear'} onClick={clearItems} />
+            <AddToCartButton
+              inverted="inverted"
+              title={' Clear'}
+              onClick={clearItems}
+            />
           </div>
         </div>
       ))}

@@ -20,7 +20,8 @@ import {
 } from './../components/Filtration/data';
 import Image from 'next/image';
 import CustomModal from '../components/Modal/CustomModal';
-import { Modal } from 'react-bootstrap';
+import style from './../styles/modal.module.scss';
+import AddToCartButton from '../components/Button/AddToCartButton';
 interface Product {
   _id: string;
   details: null;
@@ -234,7 +235,21 @@ const Home: React.FC<ProductCardProps> = ({
               {status && (
                 <CustomModal closeModal={() => setStatus(false)}>
                   {' '}
-                  <p>The content of the modal</p>
+                  <p>Filter</p>
+                  <Checkboxes list={category} handleFilters={undefined} />
+                  <Checkboxes list={price} handleFilters={undefined} />
+                  <div className={style.modalButtonArea}>
+                    {' '}
+                    <AddToCartButton
+                      inverted="inverted"
+                      title="Clear"
+                      onClick={() => console.log('yeah')}
+                    />
+                    <AddToCartButton
+                      title="Save"
+                      onClick={() => console.log('yeah')}
+                    />
+                  </div>
                 </CustomModal>
               )}
             </div>
