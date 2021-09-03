@@ -1,11 +1,16 @@
 .mynav {
   border-bottom: 3px solid #e5e5e5;
-  padding: 2vh;
+  // padding: 12vh;
   position: relative;
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
+
+    &__minMargin {
+      margin-left: -3vw;
+      padding: 0;
+    }
   }
   &__icon {
     cursor: pointer;

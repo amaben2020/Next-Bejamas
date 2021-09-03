@@ -19,13 +19,9 @@
     }
 
     &__headingSmall {
-      font-family: Archivo;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 24px;
-      letter-spacing: 0em;
+      @extend .h2;
       color: #656565;
+
       @media screen and (max-width: 768px) {
         font-size: 20px;
       }
@@ -36,15 +32,7 @@
   }
 
   &__text {
-    font-family: Archivo;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    color: #656565;
-    font-family: Archivo;
-    font-weight: 300;
+    @extend .descriptionText;
     @media screen and (max-width: 768px) {
       font-size: 14px;
       word-wrap: break-word;

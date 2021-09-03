@@ -15,20 +15,25 @@ const NavigationBar = () => {
     <div className={styles.mynav}>
       <Container>
         <div className={styles.mynav__wrapper}>
-          <Navbar.Brand>
-            <Image src="/bejamasSvg.svg" alt="me" width="194" height="24" />
-          </Navbar.Brand>
-          <Navbar.Brand
-            className={styles.mynav__icon}
-            onClick={toggleCartHandler}
-          >
-            <div className={styles.mynav__CartIcon}>
-              <Image src="/Group 3.1.png" alt="me" width="44" height="34" />{' '}
-              <p className={styles.mynav__CartIcon__value}>
-                {cartItems.length}
-              </p>
-            </div>
-          </Navbar.Brand>
+          <div className={styles.mynav__wrapper__minMargin}>
+            <Navbar.Brand>
+              <Image src="/bejamasSvg.svg" alt="me" width="194" height="24" />
+            </Navbar.Brand>
+          </div>
+
+          <div>
+            <Navbar.Brand
+              className={styles.mynav__icon}
+              onClick={toggleCartHandler}
+            >
+              <div className={styles.mynav__CartIcon}>
+                <Image src="/Group 3.1.png" alt="me" width="44" height="34" />{' '}
+                <p className={styles.mynav__CartIcon__value}>
+                  {cartItems.length}
+                </p>
+              </div>
+            </Navbar.Brand>
+          </div>
 
           {showCart ? <CartItems /> : cartItems.length ? <CartItems /> : null}
         </div>

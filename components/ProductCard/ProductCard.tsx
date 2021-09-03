@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import styles from '../../styles/card.module.scss';
 import Image from 'next/image';
+
 interface Product {
   product: any;
   key: string;

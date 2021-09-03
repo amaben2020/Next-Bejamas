@@ -35,13 +35,7 @@
     }
   }
   &__headingSecondary {
-    font-family: Archivo;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 33px;
-    letter-spacing: 0em;
-    text-align: left;
+    @extend .h_sec;
     color: #9b9b9b;
   }
   &__sort {
