@@ -45,12 +45,8 @@ const Home: React.FC<ProductCardProps> = ({
   const [pageNumber, setPageNumber] = React.useState(0);
   const productsPerPage = 6;
   const pagesVisited = pageNumber * productsPerPage;
-
   const [sortBy, setSortBy] = useState('price');
-
   const [orderBy, setOrderBy] = useState('asc');
-
-  const [sortItemsBy, setSortItemsBy] = useState('title');
 
   const filteredProductData = Object.values(products)
     .sort((a: any, b: any): any => {
